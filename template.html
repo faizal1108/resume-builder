@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jobseeker Summary</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 40px;
+      background: #fff;
+      color: #333;
+      font-size: 13px;
+    }
+
+    .container {
+      display: flex;
+      gap: 40px;
+    }
+
+    .left, .right {
+      flex: 1;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .subtext {
+      color: #777;
+      margin-bottom: 20px;
+      font-size: 12px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      font-size: 13px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 13px;
+    }
+
+    ul li {
+      margin-bottom: 5px;
+    }
+
+    .score-box {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .score-circle {
+      font-size: 28px;
+      color: green;
+      font-weight: bold;
+    }
+
+    .highlight-box {
+      background: #f0f4ff;
+      padding: 15px;
+      border-left: 5px solid #2a6ef0;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+
+    .strengths, .gaps {
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .strengths {
+      background: #e6f7e9;
+      border-left: 5px solid #34a853;
+    }
+
+    .gaps {
+      background: #fdecea;
+      border-left: 5px solid #ea4335;
+    }
+
+    .gaps ul li, .strengths ul li {
+      margin-bottom: 8px;
+    }
+
+    .small-title {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table td {
+      padding: 6px 4px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .gray {
+      color: #666;
+      font-size: 12px;
+    }
+
+    .profile-pic {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 12px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      {{profile_pic}}
+      <h1>{{name}}</h1>
+      <p class="subtext">{{age}} | {{location}}</p>
+
+      <div class="section">
+        <h2>Skills</h2>
+        <ul>
+          {{skills}}
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Tools</h2>
+        <ul>
+          {{tools}}
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Work Experience</h2>
+        <p>{{work}}</p>
+      </div>
+
+      <div class="section">
+        <h2>Education</h2>
+        <p>{{education}}</p>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="score-box">
+        <div class="score-circle">{{score}}</div>
+        <p class="gray">Employability score</p>
+        <p><strong>Best fit role:</strong> Customer Support</p>
+        <p><strong>Score Tier:</strong> Entry-Mid</p>
+      </div>
+
+      <div class="highlight-box">
+        <strong>Hire if you want:</strong>
+        <p>{{hire_if_you_want}}</p>
+      </div>
+
+      <div class="section">
+        <h2>Job match analysis</h2>
+        <div class="strengths">
+          <div class="small-title">Strengths</div>
+          <ul>
+            {{strengths}}
+          </ul>
+        </div>
+        <div class="gaps">
+          <div class="small-title">Gaps to note</div>
+          <ul>
+            {{gaps}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

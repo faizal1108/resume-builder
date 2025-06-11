@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jobseeker Info Form</title>
+  <link rel="stylesheet" href="form.css" />
+</head>
+<body>
+  <h2>Jobseeker Info Form</h2>
+  <form id="jobseekerForm" action="/generate" method="POST" enctype="multipart/form-data" autocomplete="off">
+    <label>
+      Name:
+      <input name="name" type="text" required />
+    </label>
+    <label>
+      Age:
+      <input name="age" type="number" required />
+    </label>
+    <label>
+      Location:
+      <input name="location" type="text" required />
+    </label>
+    <label>
+      Skills (comma-separated):
+      <input name="skills" type="text" required />
+    </label>
+    <label>
+      Tools (comma-separated):
+      <input name="tools" type="text" required />
+    </label>
+    <label>
+      Work Experience (HTML allowed):
+      <textarea name="work" rows="3"></textarea>
+    </label>
+    <label>
+      Education (HTML allowed):
+      <textarea name="education" rows="3"></textarea>
+    </label>
+    <label>
+      Hire if you want (HTML allowed):
+      <textarea name="hire_if_you_want" rows="3">A <strong>tech-aware</strong>, motivated <strong>fresher</strong> for office or support roles.</textarea>
+    </label>
+    <label>
+      Strengths (one per line):
+      <textarea name="strengths" rows="3">Quick learner and adaptable.
+Willing to work across domains.</textarea>
+    </label>
+    <label>
+      Gaps to note (one per line):
+      <textarea name="gaps" rows="2">May need handholding in first few weeks.</textarea>
+    </label>
+    <label>
+      Profile Picture:
+      <input type="file" name="profile_pic" accept="image/*" />
+      <img id="profile_pic_preview" class="img-preview" style="display:none;" />
+    </label>
+    <button type="submit">Generate PDF</button>
+  </form>
+  <script>
+    // Optional: Show image preview
+    const input = document.querySelector('input[type="file"][name="profile_pic"]');
+    const preview = document.getElementById('profile_pic_preview');
+    input.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) {
+        preview.style.display = 'none';
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        preview.src = evt.target.result;
+        preview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
